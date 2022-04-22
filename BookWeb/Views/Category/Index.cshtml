@@ -4,6 +4,8 @@
     ViewData["Title"] = "Index";
 }
 
+<partial name="_NotificationView" />
+
 <h1>Index Category</h1>
 
 @*HTML-CSS src: https://github.com/bhrugen/Bulky/tree/3d83a49c70ebf3ed043e9415a0dcd782f62f5bf7*@
@@ -28,6 +30,7 @@
             <th>Category Name</th>
             <th>Display Order</th>       
             <th>Date and Time</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -38,6 +41,24 @@
                 <td width="25%">@x.CategoryName</td>
                 <td width="25%">@x.DisplayOrder</td>
                 <td width="25%">@x.CreationDateTime</td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Category"
+                            asp-action="Edit"
+                            asp-route-id="@x.Id"
+                            class="btn btn-primary mx-2">Edit
+                        </a>
+                    </div>
+                </td>
+                <td>
+                    <div class="w-75 btn-group" role="group">
+                        <a asp-controller="Category"
+                            asp-action="Delete"
+                            asp-route-id="@x.Id"
+                            class="btn btn-danger mx-2">Delete
+                        </a>
+                    </div>
+                </td>
             </tr>
         }
     </tbody>
